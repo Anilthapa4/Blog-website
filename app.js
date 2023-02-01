@@ -17,8 +17,10 @@ app.use(express.static("public"));
 let posts=[];
 
 app.get("/",function(req,res){
-  res.render("home",{homeContent:homeStartingContent});
-  console.log(posts);
+  res.render("home",{
+    homeContent:homeStartingContent,
+    posts:posts}//1st posts is name & 2nd posts is array
+   );
 });
 app.get("/about",function(req,res){
   res.render("about",{abtContent:aboutContent});
@@ -38,7 +40,7 @@ app.post("/",function(req,res){
   posts.push(post);
 
   res.redirect("/");
-  
+
 });
 
 

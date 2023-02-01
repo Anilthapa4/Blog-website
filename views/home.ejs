@@ -3,4 +3,10 @@
 <h1>Home</h1>
 <p> <%= homeContent %></p>
 
+<% posts.forEach(function(post){ %>
+    <% console.log(post.title) %>
+<% }) %>
+<!-- THIS IS AN CLASSIC FOR LOOP.So now this syntax will look through our posts array and for each post, it will log the post's title.INSIDE THE FUNCTION WE SIMPLY NAME THE SINGULAR OF OUR ARRAY  -->
+
+
 <%- include("partials/footer.ejs") -%>
