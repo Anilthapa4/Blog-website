@@ -4,7 +4,8 @@
 <p> <%= homeContent %></p>
 
 <% posts.forEach(function(post){ %>
-    <% console.log(post.title) %>
+    <h1><%= post.title %></h1>
+    <p><%= post.content %></p>
 <% }) %>
 <!-- THIS IS AN CLASSIC FOR LOOP.So now this syntax will look through our posts array and for each post, it will log the post's title.INSIDE THE FUNCTION WE SIMPLY NAME THE SINGULAR OF OUR ARRAY  -->
 
