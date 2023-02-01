@@ -26,6 +26,10 @@ app.get("/contact",function(req,res){
 app.get("/compose",function(req,res){
   res.render("compose");
 });
+app.post("/",function(req,res){
+  let newContent=req.body.compose;
+  console.log(newContent);
+});
 
 
 
