@@ -11,27 +11,28 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-let posts=[];
+let posts = [];
 
-app.get("/",function(req,res){
-  res.render("home",{
-    homeContent:homeStartingContent,
-    posts:posts}//1st posts is name & 2nd posts is array
-   );
+app.get("/", function (req, res) {
+  res.render("home", {
+    homeContent: homeStartingContent,
+    posts: posts
+  }//1st posts is name & 2nd posts is array
+  );
 });
-app.get("/about",function(req,res){
-  res.render("about",{abtContent:aboutContent});
+app.get("/about", function (req, res) {
+  res.render("about", { abtContent: aboutContent });
 });
-app.get("/contact",function(req,res){
-  res.render("contact",{cntContent:contactContent});
+app.get("/contact", function (req, res) {
+  res.render("contact", { cntContent: contactContent });
 });
-app.get("/compose",function(req,res){
+app.get("/compose", function (req, res) {
   res.render("compose");
 });
-app.post("/",function(req,res){
+app.post("/compose", function (req, res) {
   const post = {
     title: req.body.postTitle,
     content: req.body.postBody
@@ -42,6 +43,17 @@ app.post("/",function(req,res){
   res.redirect("/");
 
 });
+app.get("/post/:topic", function (req, res) {
+  const requestedTitle = req.params.topic;
+  //this is a routing paramters where we can use routing technique to redirect page to various path using a common name which is specified as :topic.
+  posts.forEach(function (post) {
+    const storedTitle = post.title;
+
+    if (requestedTitle === storedTitle) {
+      console.log("Match Found!");
+    };
+  });
+});
 
 
 
@@ -54,6 +66,6 @@ app.post("/",function(req,res){
 
 
 
-app.listen(3000, function() {
+app.listen(3000, function () {
   console.log("Server started on port 3000");
 });
