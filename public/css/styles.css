@@ -14,7 +14,8 @@
 }
 
 .navbar-nav li a:hover {
-    color: #1abc9c !important;
+    color: #000 !important;
+    font-weight: bold;
 }
 
 .footer-padding {
