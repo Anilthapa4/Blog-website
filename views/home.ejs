@@ -1,13 +1,21 @@
 <%- include("partials/header.ejs") -%>
 
 <h1>Home</h1>
-<p> <%= homeContent %></p>
+<p style="color:midnightblue"><b> <%= homeContent %></b></p>
 
 <% posts.forEach(function(post){ %>
     <h1><%= post.title %></h1>
-    <p><%= post.content %></p>
+    <p>
+        <%= post.content.substring(0,500) + "..."  %>
+        <a href="/post/<%=post.title%>">Read More</a>
+    </p>  
+    <h4>
+        <u><i><%= "-" + post.author %></i></u>
+    </h4>
+    <!-- challange 20 of truncating the string using substring  -->
 <% }) %>
 <!-- THIS IS AN CLASSIC FOR LOOP.So now this syntax will look through our posts array and for each post, it will log the post's title.INSIDE THE FUNCTION WE SIMPLY NAME THE SINGULAR OF OUR ARRAY  -->
 
 
 <%- include("partials/footer.ejs") -%>
+
