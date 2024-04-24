@@ -1,4 +1,4 @@
-Daily Journal
+#Daily Journal
 Welcome to Daily Journal - a simple web application built using Express.js for journaling your thoughts and ideas. This project provides a platform where users can compose, view, and manage their daily journal entries.
 
 Features
